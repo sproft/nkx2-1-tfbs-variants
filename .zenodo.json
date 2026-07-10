@@ -1,0 +1,33 @@
+{
+  "title": "NKX2-1 transcription factor binding site variants: trained models and code",
+  "upload_type": "software",
+  "license": "mit",
+  "description": "<p>Trained VCNNBPNet models and inference code accompanying <em>Quantification of the effects of single nucleotide variants in NKX2.1 transcription factor binding sites</em>.</p><p>Three convolutional models, one per EMSA-seq mutant library (CORE, FLANK, ALL), predict the log2 fold change in NKX2-1 binding from DNA sequence. The weights are packaged for inference: optimizer state is stripped and the label-scaling parameters travel with the model, so predictions are returned in log2 fold change and the weights load without any dependency on the training code.</p><p>Underlying data are deposited separately: EMSA-seq reads, counts and DESeq2 results at GEO accession GSE319141; crystal structures at PDB accessions 9U18 (wildtype) and 9U19 (CACG variant). ChIP-seq peaks are from ChIP-Atlas and the position weight matrix is JASPAR MA1994.1.</p><p>Source code is released under the MIT license. The trained model weights are released under CC BY 4.0.</p>",
+  "keywords": [
+    "NKX2-1",
+    "transcription factor binding site",
+    "EMSA-seq",
+    "deep learning",
+    "variant effect prediction",
+    "regulatory genomics"
+  ],
+  "creators": [
+    { "name": "Lenihan-Geels, Freyda" },
+    { "name": "Proft, Sebastian" },
+    { "name": "Bommer, Martin" },
+    { "name": "Heinemann, Udo" },
+    { "name": "Seelow, Dominik" },
+    { "name": "Opitz, Robert" },
+    { "name": "Krude, Heiko" },
+    { "name": "Schuelke, Markus" },
+    { "name": "Malecka, Maria" }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.64898/2026.02.27.708450",
+      "relation": "isSupplementTo",
+      "scheme": "doi",
+      "resource_type": "publication-preprint"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Reference data downloaded by data/download.sh (large, fetched not shipped)
+data/genome/
+data/chipseq/*.bed
+data/chipseq/*.fa
+results/
+outs/
+logs/
+
+# Manuscript drafts are never committed here.
+*.docx
+manuscript/
+
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+.DS_Store

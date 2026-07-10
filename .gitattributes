@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+*.pt binary
+*.png binary
+*.pdf binary
+*.meme text eol=lf

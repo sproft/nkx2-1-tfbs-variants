@@ -1,0 +1,37 @@
+# Environment used to train the released models and run the analyses.
+# Versions follow Supplementary Table S2 of the paper.
+#
+# Inference alone needs only Python and PyTorch; `pip install -e .` is enough.
+# This file pins the full analysis stack (attribution, motif scanning, figures).
+#
+# TODO: replace the pinned block below with the authoritative `pip freeze` export
+#       from the training environment once it is copied off the cluster.
+
+name: nkx21
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11.10
+  - pytorch=2.4.0
+  - lightning=2.5.0
+  - pytorch-lightning=2.5.0
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - pip
+  - pip:
+      - biopython==1.85
+      - captum==0.8.0
+      - logomaker==0.8
+      - modisco-lite==2.2.1
+      - pybigwig==0.3.23
+      - pyfaidx==0.8.1.3
+      - shap==0.48.0
+      - tangermeme==0.4.2
+
+# External tools (not installable from these channels):
+#   FIMO / MEME suite 5.5.7   motif scanning with JASPAR MA1994.1
+#   bedtools 2.30.0           peak overlap removal
+#   FoldX 5.1                 structure-based scoring (RepairPDB)

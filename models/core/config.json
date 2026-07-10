@@ -1,0 +1,43 @@
+{
+  "library": "core",
+  "arch": "VCNNBPNet",
+  "hyper_parameters": {
+    "input_channels": 4,
+    "num_channels": 82,
+    "kernel_size": 13,
+    "dilations": [
+      1,
+      1,
+      2,
+      4,
+      8
+    ],
+    "pool_output_size": 178,
+    "dense_sizes": [
+      128,
+      64
+    ],
+    "input_length": 24,
+    "learning_rate": 0.001,
+    "classify": false
+  },
+  "scaling": {
+    "scaling_method": "standardize",
+    "mean": 0.10264415293931961,
+    "std": 0.580607533454895
+  },
+  "metrics": {
+    "val_mse": 0.045901,
+    "test_mse": 0.123174,
+    "test_pearson": 0.948,
+    "test_spearman": 0.875
+  },
+  "data": {
+    "unique_sequences": 256,
+    "sequence_space": 256,
+    "coverage_fraction": 1.0,
+    "n_train_rows": 326,
+    "n_val_rows": 82,
+    "n_test_rows": 104
+  }
+}
