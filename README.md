@@ -92,4 +92,6 @@ If you use these models, please cite the paper and this archive. See [`CITATION.
 
 ## License
 
-Code is MIT ([`LICENSE`](LICENSE)). The trained model weights are CC BY 4.0 ([`LICENSE-MODELS`](LICENSE-MODELS)). Third-party data referenced above remains under the terms of its source.
+Everything here, code and trained model weights alike, is released under the MIT license ([`LICENSE`](LICENSE)). The weights were trained on EMSA-seq data generated for this study and deposited at GEO `GSE319141`, so no upstream license restricts them.
+
+One third-party file is redistributed: `data/motifs/MA1994.1.meme`, from JASPAR under CC BY 4.0. Its attribution requirement is independent of this repository's license; see [`data/README.md`](data/README.md). ChIP-Atlas peaks and the reference genome are downloaded rather than redistributed, and remain under the terms of their sources.
