@@ -4,3 +4,9 @@
 *.png binary
 *.pdf binary
 *.meme text eol=lf
+
+# Checksummed artifacts: never touch the bytes, or SHA256SUMS stops verifying.
+environment/requirements.txt -text
+environment/requirements-pip-freeze.txt -text
+environment/environment.yml -text
+environment/SHA256SUMS -text

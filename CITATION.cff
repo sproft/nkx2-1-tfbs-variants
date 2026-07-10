@@ -48,6 +48,8 @@ preferred-citation:
   type: article
   title: "Quantification of the effects of single nucleotide variants in NKX2.1 transcription factor binding sites"
   year: 2026
+  doi: "10.64898/2026.02.27.708450"
+  url: "https://www.biorxiv.org/content/10.64898/2026.02.27.708450v2"
   authors:
     - given-names: Freyda
       family-names: Lenihan-Geels
@@ -67,4 +69,4 @@ preferred-citation:
       family-names: Schuelke
     - given-names: Maria
       family-names: Małecka
-  notes: "Lenihan-Geels and Proft contributed equally; Schuelke and Małecka are joint corresponding authors."
+  notes: "Preprint on bioRxiv; the peer-reviewed version is in preparation. Lenihan-Geels and Proft contributed equally; Schuelke and Małecka are joint corresponding authors."

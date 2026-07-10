@@ -13,7 +13,11 @@ want to *use* the models, skip to step 4 or just `load_model()` (see the top-lev
 
 ## Reproducing the preprocessing
 
-The training tensors were built with `preprocess.py` from the companion library:
+Steps 1 and 3 live in the companion library [tfbs-mcp](https://github.com/sproft/tfbs-mcp), pinned to
+an immutable commit and installed with `pip install -e ".[pipeline]"`. The exact package versions are
+recorded in [`../environment/`](../environment/README.md).
+
+The training tensors were built with `preprocess.py` from that library:
 
 ```bash
 python preprocess.py \
