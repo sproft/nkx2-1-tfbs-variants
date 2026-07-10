@@ -17,8 +17,24 @@ keywords:
   - deep learning
   - variant effect prediction
 authors:
+  - given-names: Freyda
+    family-names: Lenihan-Geels
   - given-names: Sebastian
     family-names: Proft
+  - given-names: Martin
+    family-names: Bommer
+  - given-names: Udo
+    family-names: Heinemann
+  - given-names: Dominik
+    family-names: Seelow
+  - given-names: Robert
+    family-names: Opitz
+  - given-names: Heiko
+    family-names: Krude
+  - given-names: Markus
+    family-names: Schuelke
+  - given-names: Maria
+    family-names: Malecka
 preferred-citation:
   type: article
   title: "Quantification of the effects of single nucleotide variants in NKX2.1 transcription factor binding sites"
