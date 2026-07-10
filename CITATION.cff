@@ -19,22 +19,29 @@ keywords:
 authors:
   - given-names: Freyda
     family-names: Lenihan-Geels
+    orcid: "https://orcid.org/0000-0002-4984-674X"
   - given-names: Sebastian
     family-names: Proft
   - given-names: Martin
     family-names: Bommer
+    orcid: "https://orcid.org/0000-0003-3195-9129"
   - given-names: Udo
     family-names: Heinemann
+    orcid: "https://orcid.org/0000-0002-8191-3850"
   - given-names: Dominik
     family-names: Seelow
+    orcid: "https://orcid.org/0000-0002-9746-4412"
   - given-names: Robert
     family-names: Opitz
   - given-names: Heiko
     family-names: Krude
+    orcid: "https://orcid.org/0000-0002-1169-0348"
   - given-names: Markus
     family-names: Schuelke
+    orcid: "https://orcid.org/0000-0003-2824-3891"
   - given-names: Maria
-    family-names: Malecka
+    family-names: Małecka
+    orcid: "https://orcid.org/0000-0001-8339-3230"
 preferred-citation:
   type: article
   title: "Quantification of the effects of single nucleotide variants in NKX2.1 transcription factor binding sites"
@@ -57,5 +64,5 @@ preferred-citation:
     - given-names: Markus
       family-names: Schuelke
     - given-names: Maria
-      family-names: Malecka
-  notes: "Lenihan-Geels and Proft contributed equally; Schuelke and Malecka are joint corresponding authors."
+      family-names: Małecka
+  notes: "Lenihan-Geels and Proft contributed equally; Schuelke and Małecka are joint corresponding authors."
