@@ -30,7 +30,14 @@ a symmetric 500 bp window is extracted. Regions overlapping between the positive
 are removed before scoring.
 
 `MA1994.1` is the mouse Nkx2.1 matrix. The NKX2-1 DNA-binding domain is identical between mouse and
-human, so it is a fair baseline for the human peaks.
+human, so it is a fair baseline for the human peaks. The matrix is small and is committed here at
+`motifs/MA1994.1.meme`, retrieved on 2026-07-10 from
+<https://jaspar.elixir.no/api/v1/matrix/MA1994.1/?format=meme> (see JASPAR for its terms of use).
+
+It is 13 positions wide and built from 16,242 sites, but only positions 3 to 9 are informative
+(information content above 1 bit). That 7 bp core has the consensus `CACTTGA`, whose reverse
+complement `TCAAGTG` contains the `CAAG` core motif that the models and the crystal structures both
+identify as the recognition element. FIMO scans with the full 13 bp matrix.
 
 ## Layout
 
