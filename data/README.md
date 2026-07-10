@@ -32,7 +32,12 @@ are removed before scoring.
 `MA1994.1` is the mouse Nkx2.1 matrix. The NKX2-1 DNA-binding domain is identical between mouse and
 human, so it is a fair baseline for the human peaks. The matrix is small and is committed here at
 `motifs/MA1994.1.meme`, retrieved on 2026-07-10 from
-<https://jaspar.elixir.no/api/v1/matrix/MA1994.1/?format=meme> (see JASPAR for its terms of use).
+<https://jaspar.elixir.no/api/v1/matrix/MA1994.1/?format=meme>.
+
+JASPAR is licensed under CC BY 4.0, which permits this redistribution provided the source is
+credited. Please cite: Rauluseviciute I, Riudavets-Puig R, Blanc-Mathieu R, et al. JASPAR 2024:
+20th anniversary of the open-access database of transcription factor binding profiles.
+*Nucleic Acids Res*. 2024;52(D1):D174-D182. doi:10.1093/nar/gkad1059
 
 It is 13 positions wide and built from 16,242 sites, but only positions 3 to 9 are informative
 (information content above 1 bit). That 7 bp core has the consensus `CACTTGA`, whose reverse

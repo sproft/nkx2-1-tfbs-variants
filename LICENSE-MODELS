@@ -11,6 +11,9 @@ give appropriate credit. Attribution should cite the paper and this archive; see
 The source code in this repository is licensed separately, under the MIT license; see `LICENSE`.
 
 The weights were trained on EMSA-seq data generated for this study and deposited at GEO accession
-`GSE319141`. Third-party resources referenced by the analysis scripts (ChIP-Atlas peak sets, the
-JASPAR `MA1994.1` matrix, the human reference genome) remain under the terms of their own sources
-and are not redistributed here.
+`GSE319141`, so no third-party licence restricts them.
+
+Third-party resources referenced by the analysis scripts (ChIP-Atlas peak sets, the human reference
+genome) remain under the terms of their own sources and are not redistributed here. The one
+exception is `data/motifs/MA1994.1.meme`, redistributed from JASPAR under CC BY 4.0 with the
+attribution recorded in `data/README.md`.
