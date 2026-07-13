@@ -60,9 +60,10 @@ The freeze contains an editable install of the `TFBS-NN` workspace at commit `37
 environment was never reinstalled afterwards. The analyses therefore ran against the model code that
 still lived inside `TFBS-NN`, under the `classes` package, rather than against `tfbs-mcp`.
 
-The library now lives at [sproft/tfbs-mcp](https://github.com/sproft/tfbs-mcp) and provides the same
-code under the `tfbs` package. To rerun the preprocessing, training or attribution steps today,
-install it at the pinned commit:
+The library now lives at [sproft/tfbs-mcp](https://github.com/sproft/tfbs-mcp), a companion package
+that is in preparation and not yet formally released, and provides the same code under the `tfbs`
+package. To rerun the preprocessing, training or attribution steps today, install it at the pinned
+commit:
 
 ```bash
 pip install -e ".[pipeline]"

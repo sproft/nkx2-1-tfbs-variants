@@ -25,10 +25,12 @@ dependencies = ["torch>=2.0"]
 [project.optional-dependencies]
 figures = ["matplotlib>=3.7", "numpy>=1.24", "pandas>=2.0", "scikit-learn>=1.3"]
 attribution = ["tangermeme==0.4.2", "captum==0.8.0", "logomaker==0.8", "modisco-lite==2.2.1"]
-# Preprocessing, training and attribution are provided by the companion library, pinned to an
-# immutable commit so a reinstall cannot silently change the code. Not needed for inference: the
-# model definitions required to load the released weights are vendored in src/nkx21/models.py.
-# This is a direct reference, so the package is installable from a checkout but not from PyPI.
+# Preprocessing, training and attribution are provided by tfbs-mcp, a companion library that is in
+# preparation and not yet formally released. It is pinned to an immutable commit so a reinstall
+# cannot silently change the code, and it is optional: inference does not need it, because the model
+# definitions required to load the released weights are vendored in src/nkx21/models.py. A direct
+# git reference (installable from a checkout, not from PyPI); a released, versioned form will
+# supersede this pin when it is available.
 pipeline = [
     "tfbs-mcp @ git+https://github.com/sproft/tfbs-mcp.git@c86c6ef2f6dab24dfeffddc97dd8ed269d89bbdc",
 ]
