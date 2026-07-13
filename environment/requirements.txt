@@ -1,4 +1,4 @@
-# TFBS-NN — pinned requirements for Zenodo release
+# TFBS-NN pinned requirements for the Zenodo release
 # Generated 2026-07-10 from the sams conda env (Python 3.11.10, PyTorch 2.4.0+cu121).
 #
 # Install:

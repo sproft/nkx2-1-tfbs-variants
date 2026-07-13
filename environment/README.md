@@ -23,10 +23,11 @@ plain `pip install -e .` route instead.
 | `environment.yml` | Full conda export, including channels and conda-level packages. |
 | `SHA256SUMS` | Checksums for the three files above. |
 
-The two requirement files are shipped byte for byte as the cluster produced them, so their published
-checksums still verify. They were named `requirements_clean.txt` and `requirements.txt` there; the
-header inside `requirements.txt` accordingly still names the `TFBS-NN` workspace it was generated
-from.
+The raw `pip freeze` (`requirements-pip-freeze.txt`) is shipped exactly as the cluster produced it.
+The installable `requirements.txt` is the same file with a single em-dash removed from its comment
+header for house style; `SHA256SUMS` records the checksums of both as shipped here. They were named
+`requirements_clean.txt` and `requirements.txt` on the cluster, and their headers still name the
+`TFBS-NN` workspace they were generated from.
 
 Verify before use:
 

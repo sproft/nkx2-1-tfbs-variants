@@ -61,7 +61,7 @@ Hyperparameters were selected on the **validation** split; the numbers below on 
 | `flank` | 0.0522 | 0.0514 | 0.973 | 0.935 | 1,048,312 of 4¹⁰ (99.97%) |
 | `all`   | 0.2910 | 0.2849 | 0.842 | 0.679 | 108,715 of 4¹⁴ (0.04%) |
 
-The FLANK model generalizes best. It saw essentially its entire sequence space, which is why 10 bp of flank diversity is sufficient to predict relative NKX2-1 binding strength and the far larger ALL library is not worth its sequencing cost. The CORE model's validation-to-test gap follows from its training split of only 163 unique sequences.
+The FLANK model generalizes best. It saw nearly all of its sequence space, which is why 10 bp of flank diversity is sufficient to predict relative NKX2-1 binding strength and the far larger ALL library is not worth its sequencing cost. The CORE model's validation-to-test gap follows from its training split of only 163 unique sequences.
 
 ## Data
 

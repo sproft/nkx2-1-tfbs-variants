@@ -33,7 +33,7 @@ python preprocess.py \
   --context --target log2FC --sequence sequence --rc
 ```
 
-`--context` wraps each 14 bp variable sequence in its constant flanks (`CACTGC` … `TTGA`) to give
+`--context` wraps each 14 bp variable sequence in its constant flanks (`CACTGC` and `TTGA`) to give
 the 24 bp model input. The data are split 64 / 16 / 20 with `random_state=42`, and `--rc` then adds
 the reverse complement of every sequence **within each split**, so no sequence shares a split with
 its own reverse complement.
