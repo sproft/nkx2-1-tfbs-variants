@@ -43,13 +43,13 @@ colnames(AD3) = c("sequence", "AD3")
 
 #merge dataframes
 dat_flank = merge(FD1, FD2, by = "sequence", all = TRUE)
-dat_flank = merge(dat, FD3, by = "sequence", all = TRUE)
-dat_flank = merge(dat, F21, by = "sequence", all = TRUE)
-dat_flank = merge(dat, F22, by = "sequence", all = TRUE)
-dat_flank = merge(dat, F23, by = "sequence", all = TRUE)
-dat_flank = merge(dat, F11, by = "sequence", all = TRUE)
-dat_flank = merge(dat, F12, by = "sequence", all = TRUE)
-dat_flank = merge(dat, F13, by = "sequence", all = TRUE)
+dat_flank = merge(dat_flank, FD3, by = "sequence", all = TRUE)
+dat_flank = merge(dat_flank, F21, by = "sequence", all = TRUE)
+dat_flank = merge(dat_flank, F22, by = "sequence", all = TRUE)
+dat_flank = merge(dat_flank, F23, by = "sequence", all = TRUE)
+dat_flank = merge(dat_flank, F11, by = "sequence", all = TRUE)
+dat_flank = merge(dat_flank, F12, by = "sequence", all = TRUE)
+dat_flank = merge(dat_flank, F13, by = "sequence", all = TRUE)
 
 dat_core = merge(CD1, CD2, by = "sequence", all = TRUE)
 dat_core = merge(dat_core, CD3, by = "sequence", all = TRUE)
@@ -97,7 +97,7 @@ res <- results(dds)
 # Get a specific result
 res_0.1 = results(dds, name="Condition_0.1_vs_Unbound")
 res_0.2 = results(dds, name="Condition_0.2_vs_Unbound")
-res_0.5 = results(dds, name0"Condition_0.5_vs_Unbound") #all library only
+res_0.5 = results(dds, name="Condition_0.5_vs_Unbound") #all library only
 
 # Shrink the log-fold changes using apeglm method
 res_0.1 <- lfcShrink(dds, coef = "Condition_0.1_vs_Unbound", type = "apeglm")

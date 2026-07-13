@@ -4,10 +4,10 @@
 #Freyda Lenihan-Geels
 #25.01.2025
 
-mkdir /massdata/FORANALYSIS/FREYDA/EMSAseq_data/processed
-
-rootdir="/massdata/FORANALYSIS/FREYDA/EMSAseq_data"
-results="/massdata/FORANALYSIS/FREYDA/EMSAseq_data/processed"
+# Point EMSA_ROOT at the directory holding the raw *.fastq.gz files.
+rootdir="${EMSA_ROOT:?set EMSA_ROOT to the directory with the raw *.fastq.gz files}"
+results="$rootdir/processed"
+mkdir -p "$results"
 
 #Enter names of files to be processed without .fastq or fastq.gz ending
 
@@ -89,21 +89,21 @@ done
 for FA in ${input[@]}
 do 
 echo "***** $FA"
-cutadapt -a ^CCAGT...TGTTC$ -e 0.0 --discard-trimmed -o $results/$FA.cutadapt.step6.fastq.gz $rootdir/$FA.cutadapt.step5.fastq.gz
+cutadapt -a ^CCAGT...TGTTC$ -e 0.0 --discard-trimmed -o $results/$FA.cutadapt.step6.fastq.gz $results/$FA.cutadapt.step5.fastq.gz
 done
 
 #FOR FLANK LIBRARY ONLY - ensure sequences match flank library design
 for FA in ${input[@]}
 do 
 echo "***** $FA"
-cutadapt -a TTGATCACCGCTCCGACTGCAGAAAATAAGGCGA$ -e 0.0 --action=retain --discard-untrimmed -o $results/$FA.cutadapt.step6.fastq.gz $FA.cutadapt.step5.fastq.gz
+cutadapt -a TTGATCACCGCTCCGACTGCAGAAAATAAGGCGA$ -e 0.0 --action=retain --discard-untrimmed -o $results/$FA.cutadapt.step6.fastq.gz $results/$FA.cutadapt.step5.fastq.gz
 done
 
 #FOR CORE LIBRARY ONLY - ensure sequences match core library design
 for FA in ${input[@]}
 do 
 echo "***** $FA"
-cutadapt -a ^CCAGT...TGTTC$ -e 0.0 --action=retain --discard-untrimmed -o $rootdir/$FA.cutadapt.step6.fastq.gz $FA.cutadapt.step5.fastq.gz
+cutadapt -a ^CCAGT...TGTTC$ -e 0.0 --action=retain --discard-untrimmed -o $results/$FA.cutadapt.step6.fastq.gz $results/$FA.cutadapt.step5.fastq.gz
 done
 
 exit

@@ -1,9 +1,10 @@
 # EMSA-seq preprocessing
 
-The pipeline that turns the raw sequencing reads into the log2 fold-change training labels. These are
-the scripts as written by Freyda Lenihan-Geels and run for the study; they are provided as the record
-of what produced the data. The resulting DESeq2 tables are also deposited at GEO `GSE319141`, so the
-models can be retrained without rerunning this pipeline.
+The pipeline that turns the raw sequencing reads into the log2 fold-change training labels, from the
+scripts written by Freyda Lenihan-Geels and run for the study. A few minimal corrections were applied
+for this release so that the scripts run as intended; they are listed at the end and none change the
+analysis. The resulting DESeq2 tables are also deposited at GEO `GSE319141`, so the models can be
+retrained without rerunning this pipeline.
 
 ## Pipeline
 
@@ -46,7 +47,12 @@ requires the correct reverse primer with cutadapt (removing off-target primer bi
 14 bp variable region, and keeps only reads that are exactly 14 bp. The final step is
 library-specific and there are three variants in the file, one per library: ALL removes sequences
 contaminating from the CORE design (`CCAGT...TGTTC`), while FLANK and CORE retain only sequences
-matching their own design. Run the block that matches the library you are processing.
+matching their own design. Run the block that matches the library you are processing. Set `EMSA_ROOT`
+to the directory holding the raw FASTQ files before running:
+
+```bash
+EMSA_ROOT=/path/to/raw_fastq sh EMSAseq_raw_data_analysis.sh
+```
 
 **`EMSAseq_count.py`** counts unique 14 bp sequences in one processed FASTQ and writes a
 `sequence <tab> count` table. Run once per sample:
@@ -81,19 +87,21 @@ seqtk, fastq-filter and cutadapt for read processing; DESeq2 1.50.0 and apeglm 1
 differential analysis, with pheatmap and RColorBrewer for the plots. Exact versions are in
 [`../../environment/`](../../environment/README.md).
 
-## Notes on the deposited scripts
+## Corrections applied for this release
 
-These are provided as run. A reproducer should be aware of the following, all of which are easy to
-work around in the interactive session:
+The scripts are otherwise as deposited. The following minimal corrections were made so that they run
+as intended; none change the analysis.
 
-- **`EMSAseq_deseq2_analysis.R`, line 100** reads `results(dds, name0"Condition_0.5_vs_Unbound")`.
-  `name0` is a typo for `name=`; correct it before running. This line is for the ALL library only.
-- **`EMSAseq_deseq2_analysis.R`, lines 46 to 52** (the FLANK merge chain) accumulate into `dat`
-  rather than `dat_flank`, so only `FD1` and `FD2` reach `dat_flank`. Chain these merges into
-  `dat_flank`, as the CORE and ALL blocks correctly do, to include the remaining FLANK samples.
-- The script relies on objects set up by hand in the session (`coldata`, the per-sample count
-  frames, the `dat` assignment) and on `library(RColorBrewer)`; these are not created by the script
-  itself.
-- **`EMSAseq_raw_data_analysis.sh`** uses absolute `/massdata/...` paths and its three
-  library-specific final blocks share one output filename; set `rootdir`/`results` for your system
-  and run only the block for the library you are processing.
+- **`EMSAseq_deseq2_analysis.R`, line 100:** `name0` corrected to `name=` in the `res_0.5` call,
+  which was otherwise a syntax error (ALL library only).
+- **`EMSAseq_deseq2_analysis.R`, lines 46 to 52:** the FLANK merge chain now accumulates into
+  `dat_flank` rather than `dat`, matching the CORE and ALL blocks, so all FLANK samples are included
+  rather than only the first two.
+- **`EMSAseq_raw_data_analysis.sh`:** the hardcoded `/massdata/...` paths are replaced by an
+  `EMSA_ROOT` variable (`rootdir="${EMSA_ROOT:?...}"`, `results="$rootdir/processed"`), and the three
+  library-specific final steps now read the step-5 output from `$results` consistently.
+
+Still done by hand in the R session, as in the original: import the per-sample count tables; assign
+`dat` to the working library (`dat_core`, `dat_flank` or `dat_all`); define `coldata`; and
+`library(RColorBrewer)` for the heatmap palette. The three library-specific blocks in the shell
+script share one output filename, so run only the block for the library you are processing.
