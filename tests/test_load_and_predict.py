@@ -14,7 +14,7 @@ import pytest
 import torch
 
 from nkx21 import (
-    INPUT_LENGTH, add_context, load_baseline, load_checkpoint, load_model,
+    INPUT_LENGTH, add_context, load_checkpoint, load_model,
     one_hot, predict, reverse_complement, score_windows,
 )
 
@@ -99,14 +99,6 @@ def test_variable_input_length_is_supported() -> None:
     long_seq = "".join(random.Random(1).choice("ACGT") for _ in range(200))
     scores = score_windows(loaded, long_seq, window=INPUT_LENGTH)
     assert scores.shape[0] == 200 - INPUT_LENGTH + 1
-
-
-@pytest.mark.parametrize("library", LIBRARIES)
-def test_rnn_baseline_requires_a_fixed_input_length(library: str) -> None:
-    loaded = load_baseline(library, root=MODELS)
-    assert predict(loaded, random_seqs(4)).shape == (4,)
-    with pytest.raises(ValueError, match="requires 24 bp"):
-        predict(loaded, ["ACGT" * 3], with_context=False)
 
 
 def test_add_context_rejects_wrong_length_and_bad_alphabet() -> None:

@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "NKX2-1 transcription factor binding site variants: trained models and code"
+title: "NKX2.1 transcription factor binding site variants: trained models and code"
 message: "If you use these models or this code, please cite both the paper and this archive."
 type: software
 version: 1.0.0
@@ -7,11 +7,11 @@ license: MIT
 repository-code: "https://github.com/sproft/nkx2-1-tfbs-variants"
 abstract: >-
   Trained VCNNBPNet models and inference code for quantifying the effects of single
-  nucleotide variants in NKX2-1 transcription factor binding sites. Three convolutional
+  nucleotide variants in NKX2.1 transcription factor binding sites. Three convolutional
   models, one per EMSA-seq mutant library (CORE, FLANK, ALL), predict the log2 fold
   change in binding from DNA sequence.
 keywords:
-  - NKX2-1
+  - NKX2.1
   - transcription factor binding site
   - EMSA-seq
   - deep learning

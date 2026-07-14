@@ -1,4 +1,4 @@
-"""Model definitions for the NKX2-1 transcription factor binding site study.
+"""Model definitions for the NKX2.1 transcription factor binding site study.
 
 These are pure-PyTorch reimplementations of the two architectures used in the paper.
 They reproduce the released checkpoints exactly, keyed identically to the trained
@@ -70,59 +70,5 @@ class VCNNBPNet(nn.Module):
         return torch.sigmoid(out) if self.classify else out
 
 
-class RNN(nn.Module):
-    """Convolution + GRU baseline from the architecture comparison.
-
-    Unlike VCNNBPNet this model has a fixed input length: the dense layer is sized
-    from ``input_length``, so it only accepts sequences of that length (24 bp).
-    """
-
-    def __init__(
-        self,
-        input_length: int = 24,
-        input_channels: int = 4,
-        conv_out_channels: int = 100,
-        kernel_size: int = 5,
-        pool_size: int = 2,
-        dropout_conv: float = 0.3,
-        gru_hidden_size: int = 100,
-        gru_num_layers: int = 1,
-        bidirectional: bool = True,
-        dense_size: int = 100,
-        dropout_fc: float = 0.6,
-        classify: bool = False,
-        **_ignored,
-    ):
-        super().__init__()
-        self.classify = classify
-        self.input_length = input_length
-
-        self.conv1 = nn.Conv1d(input_channels, conv_out_channels, kernel_size, padding="valid")
-        self.maxpool1 = nn.MaxPool1d(pool_size, stride=pool_size)
-        self.dropout1 = nn.Dropout(dropout_conv)
-        self.gru1 = nn.GRU(
-            conv_out_channels, gru_hidden_size, num_layers=gru_num_layers,
-            batch_first=True, bidirectional=bidirectional,
-        )
-
-        conv_out_len = (input_length - kernel_size + 1) // pool_size
-        directions = 2 if bidirectional else 1
-        self.fc1 = nn.Linear(conv_out_len * gru_hidden_size * directions, dense_size)
-        self.dropout2 = nn.Dropout(dropout_fc)
-        self.fc2 = nn.Linear(dense_size, 1)
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x = F.relu(self.conv1(x))
-        x = self.maxpool1(x)
-        x = self.dropout1(x)
-        x = x.permute(0, 2, 1)  # (batch, seq, features) for the GRU
-        x, _ = self.gru1(x)
-        x = x.contiguous().view(x.size(0), -1)
-        x = F.relu(self.fc1(x))
-        x = self.dropout2(x)
-        out = self.fc2(x)
-        return torch.sigmoid(out) if self.classify else out
-
-
 #: Architecture registry. Both spellings of the model name resolve to the same class.
-ARCHITECTURES = {"VCNNBPNet": VCNNBPNet, "VCNNBpnet": VCNNBPNet, "RNN": RNN}
+ARCHITECTURES = {"VCNNBPNet": VCNNBPNet, "VCNNBpnet": VCNNBPNet}

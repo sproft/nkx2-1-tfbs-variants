@@ -78,10 +78,3 @@ def load_model(library: str, root: str | Path = "models", device: str = "cpu") -
     if library not in LIBRARIES:
         raise ValueError(f"library must be one of {LIBRARIES}, got {library!r}")
     return load_checkpoint(Path(root) / library / "vcnnbpnet.pt", device=device)
-
-
-def load_baseline(library: str, root: str | Path = "models", device: str = "cpu") -> LoadedModel:
-    """Load the recurrent baseline for ``library`` (fixed 24 bp input)."""
-    if library not in LIBRARIES:
-        raise ValueError(f"library must be one of {LIBRARIES}, got {library!r}")
-    return load_checkpoint(Path(root) / "baselines" / f"rnn_{library}.pt", device=device)

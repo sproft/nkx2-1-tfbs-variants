@@ -35,11 +35,6 @@ METRICS = {
         "flank": {"val_mse": 0.051444, "test_mse": 0.052198, "test_pearson": 0.973, "test_spearman": 0.935},
         "all":   {"val_mse": 0.284889, "test_mse": 0.291039, "test_pearson": 0.842, "test_spearman": 0.679},
     },
-    "RNN": {
-        "core":  {"val_mse": 0.102274, "test_mse": 0.209793},
-        "flank": {"val_mse": 0.051773, "test_mse": 0.052556},
-        "all":   {"val_mse": 0.275277, "test_mse": 0.282580},
-    },
 }
 
 # Rows include the reverse complement of every sequence, added independently within
@@ -132,12 +127,7 @@ def main() -> None:
         scaling = json.loads((sp_dir / f"{dirname}_standardize_VCNNBpnet.json").read_text())
         assert scaling["scaling_method"] == "standardize", lib
 
-        # The scaling is a property of the library, not the architecture: the RNN
-        # baselines were trained on the same tensors and share these parameters.
-        for arch, out in (
-            ("VCNNBpnet", args.out / lib / "vcnnbpnet.pt"),
-            ("RNN", args.out / "baselines" / f"rnn_{lib}.pt"),
-        ):
+        for arch, out in (("VCNNBpnet", args.out / lib / "vcnnbpnet.pt"),):
             src = sm / dirname / "standardize" / f"best_{arch}.ckpt"
             ref = torch.load(src, map_location="cpu", weights_only=False)["state_dict"]
             s_mb, o_mb = export(src, out, arch, lib, scaling)

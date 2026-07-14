@@ -5,12 +5,12 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nkx21"
 version = "1.0.0"
-description = "Trained models and code for quantifying the effects of single nucleotide variants in NKX2-1 transcription factor binding sites"
+description = "Trained models and code for quantifying the effects of single nucleotide variants in NKX2.1 transcription factor binding sites"
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
 authors = [{ name = "Sebastian Proft" }]
-keywords = ["NKX2-1", "transcription factor", "binding site", "deep learning", "EMSA-seq"]
+keywords = ["NKX2.1", "transcription factor", "binding site", "deep learning", "EMSA-seq"]
 classifiers = [
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",

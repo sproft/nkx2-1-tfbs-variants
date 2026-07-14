@@ -38,11 +38,6 @@ def predict(
     if with_context:
         seqs = [add_context(s) for s in seqs]
 
-    if loaded.arch == "RNN":
-        bad = {len(s) for s in seqs} - {INPUT_LENGTH}
-        if bad:
-            raise ValueError(f"the RNN baseline requires {INPUT_LENGTH} bp inputs, got lengths {sorted(bad)}")
-
     out = []
     for start in range(0, len(seqs), batch_size):
         x = one_hot(seqs[start : start + batch_size]).to(device)

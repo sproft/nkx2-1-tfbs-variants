@@ -2,13 +2,17 @@
 
 Builds the eight-panel figure:
 
-  A-D  ROC curves separating NKX2-1 peaks from those of a negative control factor
-       (GATA1, MYOD1, NKX2-5, RXRA), for the CORE, FLANK and ALL models and the PWM.
+  A-D  ROC curves separating NKX2.1 peaks from those of a negative control factor
+       (GATA1, MYOD1, NKX2.5, RXRA), for the CORE, FLANK and ALL models and the PWM.
   E-H  Where each model places its highest-scoring 24 bp window inside a 500 bp
-       NKX2-1 peak (ALL, CORE, FLANK, PWM).
+       NKX2.1 peak (ALL, CORE, FLANK, PWM).
 
 Panels are lettered in the order the negative factors appear in ``NEG_TFS``:
-A = GATA1, B = MYOD1, C = NKX2-5, D = RXRA.
+A = GATA1, B = MYOD1, C = NKX2.5, D = RXRA.
+
+``POS_TF`` and ``NEG_TFS`` keep the hyphenated gene symbols (``NKX2-1``, ``NKX2-5``)
+because those name the ChIP-Atlas input files. The figure labels the proteins
+(NKX2.1, NKX2.5), which is what the plotting code renders.
 
 Inputs are the prediction tables written by the scoring step and the FIMO output:
 
