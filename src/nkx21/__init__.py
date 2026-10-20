@@ -18,4 +18,4 @@ __all__ = [
     "add_context", "load_checkpoint", "load_model", "one_hot",
     "predict", "reverse_complement", "score_windows",
 ]
-__version__ = "1.0.0"
+__version__ = "1.0.1"

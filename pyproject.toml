@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nkx21"
-version = "1.0.0"
+version = "1.0.1"
 description = "Trained models and code for quantifying the effects of single nucleotide variants in NKX2.1 transcription factor binding sites"
 readme = "README.md"
 license = { text = "MIT" }
