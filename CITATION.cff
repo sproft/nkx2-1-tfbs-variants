@@ -2,7 +2,7 @@ cff-version: 1.2.0
 title: "NKX2.1 transcription factor binding site variants: trained models and code"
 message: "If you use these models or this code, please cite both the paper and this archive."
 type: software
-version: 1.0.0
+version: 1.0.1
 license: MIT
 repository-code: "https://github.com/sproft/nkx2-1-tfbs-variants"
 abstract: >-

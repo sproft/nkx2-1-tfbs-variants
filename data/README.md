@@ -24,10 +24,12 @@ and retrain the models from scratch.
 | Human reference genome, hg38 | UCSC or Ensembl | extracting peak sequences |
 
 ChIP-Atlas peaks are the high-confidence set: MACS2 *Q* < 1e-50, pooled across cell types
-(`AllCell`), with overlapping peaks removed within each file. For Figure 6 the positive set is
-NKX2.1 and the negatives are GATA1, MYOD1, NKX2.5 and RXRA. Peaks are centred on their midpoint and
-a symmetric 500 bp window is extracted. Regions overlapping between the positive and negative sets
-are removed before scoring.
+(`AllCell`). Overlapping peaks within a file are not merged, so one binding region can appear more
+than once: the 34,608 NKX2.1 peaks scored for the paper form 17,145 regions. For Figure 6 the
+positive set is NKX2.1 and the negatives are GATA1, MYOD1, NKX2.5 and RXRA. Peaks that overlap a
+peak of the other set are removed, and then a symmetric 500 bp window is extracted around the
+midpoint of each remaining peak. Most peaks are shorter than 500 bp (median 231 bp for NKX2.1), so
+the windows reach beyond the peaks, and a few windows of the two sets still overlap.
 
 `MA1994.1` is the mouse Nkx2.1 matrix. The NKX2.1 DNA-binding domain is identical between mouse and
 human, so it is a fair baseline for the human peaks. The matrix is small and is committed here at
