@@ -19,8 +19,8 @@ variants, and how to run the interactive DESeq2 script. Steps 4 and 5 live in th
 
 ## Reproducing the preprocessing
 
-Steps 1 and 3 live in [tfbs-mcp](https://github.com/sproft/tfbs-mcp), a companion library **in
-preparation (not yet formally released)**, pinned to an immutable commit and installed with
+Steps 4 and 5 live in [tfbs-mcp](https://github.com/sproft/tfbs-mcp), the companion library, pinned to
+the commit of its release 1.0.2 (doi:10.5281/zenodo.24115662) and installed with
 `pip install -e ".[pipeline]"`. The exact package versions are recorded in
 [`../environment/`](../environment/README.md).
 

@@ -14,7 +14,7 @@ pip install -e ".[figures,dev]"    # to reproduce figures and run the tests
 pip install -e ".[pipeline]"       # to rerun preprocessing, training or attribution
 ```
 
-The `pipeline` extra pulls in [tfbs-mcp](https://github.com/sproft/tfbs-mcp), a companion library that is **in preparation and not yet formally released**, at a pinned commit. It is optional and is not needed to load or score the models; a released, versioned form will supersede the pin once it is available. To recreate the exact package versions the paper was produced with, see [`environment/`](environment/README.md).
+The `pipeline` extra pulls in [tfbs-mcp](https://github.com/sproft/tfbs-mcp), the companion library for preprocessing, training and attribution, at its release 1.0.2 (doi:10.5281/zenodo.24115662), pinned by commit. It is optional and is not needed to load or score the models. To recreate the exact package versions the paper was produced with, see [`environment/`](environment/README.md).
 
 ## Quickstart
 
