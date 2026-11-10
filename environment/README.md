@@ -58,7 +58,7 @@ in step 1 satisfies it and pip will not replace it.
 
 The freeze contains an editable install of the `TFBS-NN` workspace at commit `3747683` and **no
 `tfbs-mcp`**. That commit is the one that split the library out of the workspace, and the
-environment was never reinstalled afterwards. The analyses therefore ran against the model code that
+environment was never reinstalled afterward. The analyses therefore ran against the model code that
 still lived inside `TFBS-NN`, under the `classes` package, rather than against `tfbs-mcp`.
 
 The library now lives at [sproft/tfbs-mcp](https://github.com/sproft/tfbs-mcp), released as version
