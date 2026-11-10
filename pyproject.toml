@@ -25,14 +25,13 @@ dependencies = ["torch>=2.0", "numpy>=1.24"]
 [project.optional-dependencies]
 figures = ["matplotlib>=3.7", "pandas>=2.0", "scikit-learn>=1.3"]
 attribution = ["tangermeme==0.4.2", "captum==0.8.0", "logomaker==0.8", "modisco-lite==2.2.1"]
-# Preprocessing, training and attribution are provided by tfbs-mcp, a companion library that is in
-# preparation and not yet formally released. It is pinned to an immutable commit so a reinstall
-# cannot silently change the code, and it is optional: inference does not need it, because the model
-# definitions required to load the released weights are vendored in src/nkx21/models.py. A direct
-# git reference (installable from a checkout, not from PyPI); a released, versioned form will
-# supersede this pin when it is available.
+# Preprocessing, training and attribution are provided by tfbs-mcp, the companion library, at its
+# release 1.0.2 (tag v1.0.2, doi:10.5281/zenodo.24115662). It is pinned to the commit of that release so a
+# reinstall cannot silently change the code, and it is optional: inference does not need it, because
+# the model definitions required to load the released weights are vendored in src/nkx21/models.py.
+# A direct git reference (installable from a checkout, not from PyPI).
 pipeline = [
-    "tfbs-mcp @ git+https://github.com/sproft/tfbs-mcp.git@c86c6ef2f6dab24dfeffddc97dd8ed269d89bbdc",
+    "tfbs-mcp @ git+https://github.com/sproft/tfbs-mcp.git@a9b6209d8b1f47b4c8d96307a01f9e3032b76053",
 ]
 dev = ["pytest>=7.4"]
 
